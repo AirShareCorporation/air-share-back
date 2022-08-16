@@ -26,7 +26,7 @@ public class User {
     @JoinColumn(name = "role_id", nullable = false)
     private Role role;
 
-    @ManyToOne(optional = false)
+    @ManyToOne(cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "status_id", nullable = false)
     private Status status;
 
