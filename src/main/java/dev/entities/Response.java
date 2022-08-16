@@ -4,31 +4,27 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "topic")
-public class Topic {
+@Table(name = "response")
+public class Response {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
-    private String title;
-
-    private String message;
+    private String content;
 
     private LocalDate written_at;
-
-    private boolean highlight;
 
     @ManyToOne(cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     @ManyToOne(cascade = CascadeType.ALL, optional = false)
-    @JoinColumn(name = "category_id", nullable = false)
-    private Category category;
+    @JoinColumn(name = "topic_id", nullable = false)
+    private Topic topic;
 
-    public Topic() {
+    public Response() {
     }
 
     public Long getId() {
@@ -39,20 +35,12 @@ public class Topic {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getContent() {
+        return content;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public LocalDate getWritten_at() {
@@ -63,14 +51,6 @@ public class Topic {
         this.written_at = written_at;
     }
 
-    public boolean isHighlight() {
-        return highlight;
-    }
-
-    public void setHighlight(boolean highlight) {
-        this.highlight = highlight;
-    }
-
     public User getUser() {
         return user;
     }
@@ -79,11 +59,11 @@ public class Topic {
         this.user = user;
     }
 
-    public Category getCategory() {
-        return category;
+    public Topic getTopic() {
+        return topic;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setTopic(Topic topic) {
+        this.topic = topic;
     }
 }
