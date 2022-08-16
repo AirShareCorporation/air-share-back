@@ -1,6 +1,7 @@
 package dev.airshareback.entities;
 
 import javax.persistence.*;
+
 import java.time.LocalDate;
 
 @Entity
@@ -57,3 +58,4 @@ public class AirData {
         this.city = city;
     }
 }
+

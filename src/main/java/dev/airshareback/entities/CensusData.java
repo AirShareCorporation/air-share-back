@@ -1,6 +1,7 @@
 package dev.airshareback.entities;
 
 import javax.persistence.*;
+
 import java.time.LocalDate;
 
 @Entity
@@ -23,6 +24,7 @@ public class CensusData {
     private City city;
 
     public CensusData() {
+
     }
 
     public Long getId() {
