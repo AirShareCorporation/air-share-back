@@ -13,6 +13,9 @@ public class Region {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @Column(name = "code", nullable = false)
+    private String code;
+
     @Column(name = "name", length = 60, nullable = false)
     private String name;
 
