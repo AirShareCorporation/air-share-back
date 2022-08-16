@@ -1,11 +1,11 @@
-package dev.entities;
+package dev.airshareback.entities;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "air_data")
-public class Air_data {
+public class AirData {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +22,7 @@ public class Air_data {
     @JoinColumn(name = "city_id", nullable = false)
     private City city;
 
-    public Air_data() {
+    public AirData() {
     }
 
     public Long getId() {

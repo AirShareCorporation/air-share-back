@@ -1,10 +1,10 @@
-package dev.entities;
+package dev.airshareback.entities;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "status")
-public class Status {
+@Table(name = "moderation_status")
+public class ModerationStatus {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)

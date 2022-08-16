@@ -1,4 +1,4 @@
-package dev.entities;
+package dev.airshareback.entities;
 
 import javax.persistence.*;
 import java.util.Date;
