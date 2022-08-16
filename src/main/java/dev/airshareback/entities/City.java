@@ -1,6 +1,4 @@
-package dev.entities;
-
-import org.hibernate.annotations.GenericGenerator;
+package dev.airshareback.entities;
 
 import javax.persistence.*;
 import java.util.ArrayList;
