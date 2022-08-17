@@ -32,6 +32,9 @@ public class CategoryService {
         return categoryRepository.findCategoryByName_rubrique(name_rubrique);
     }
 
+
+
+
     public List<Category> list() {
         return categoryRepository.findAll();
     }
