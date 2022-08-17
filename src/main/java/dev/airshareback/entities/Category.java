@@ -29,7 +29,7 @@ public class Category {
         return name;
     }
 
-    public void setName(String name_rubrique) {
-        this.name = name_rubrique;
+    public void setName(String name) {
+        this.name = name;
     }
 }
