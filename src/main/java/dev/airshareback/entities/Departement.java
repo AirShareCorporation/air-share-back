@@ -28,9 +28,20 @@ public class Departement {
     @Column(name = "slug", length = 60, nullable = false)
     private String slug;
 
-    @ManyToOne
-    @JoinColumn(name = "region_id")
+    @ManyToOne(cascade = CascadeType.ALL, optional = false)
+    @JoinColumn(name = "region_id", nullable = false)
     private Region region;
+
+    @OneToMany(mappedBy = "departement", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<City> cities = new ArrayList<>();
+
+    public List<City> getCities() {
+        return cities;
+    }
+
+    public void setCities(List<City> cities) {
+        this.cities = cities;
+    }
 
     public Region getRegion() {
         return region;
