@@ -19,6 +19,18 @@ public class MeteoData {
     @Column(nullable = false)
     private Float data_meteo;
 
+    @ManyToOne
+    @JoinColumn(name = "city_id")
+    private City city;
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
+
     public MeteoData() {
     }
 

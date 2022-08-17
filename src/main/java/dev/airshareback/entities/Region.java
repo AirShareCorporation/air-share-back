@@ -2,7 +2,9 @@ package dev.airshareback.entities;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "region")
@@ -22,11 +24,30 @@ public class Region {
     @Column(name = "slug", length = 60, nullable = false)
     private String slug;
 
-    @OneToMany
-    private List<City> cityList = new ArrayList<>();
 
-    @OneToMany
-    private List<Region> regionList = new ArrayList<>();
+    @OneToMany(mappedBy = "region", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Departement> departements = new LinkedHashSet<>();
+
+    @OneToMany(mappedBy = "region", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<City> cities = new LinkedHashSet<>();
+
+    public Set<City> getCities() {
+        return cities;
+    }
+
+    public void setCities(Set<City> cities) {
+        this.cities = cities;
+    }
+
+    public Set<Departement> getDepartements() {
+        return departements;
+    }
+
+    public void setDepartements(Set<Departement> departements) {
+        this.departements = departements;
+    }
+
+
 
     public Region() {
     }
@@ -61,22 +82,6 @@ public class Region {
 
     public void setSlug(String slug) {
         this.slug = slug;
-    }
-
-    public List<City> getCityList() {
-        return cityList;
-    }
-
-    public void setCityList(List<City> cityList) {
-        this.cityList = cityList;
-    }
-
-    public List<Region> getRegionList() {
-        return regionList;
-    }
-
-    public void setRegionList(List<Region> regionList) {
-        this.regionList = regionList;
     }
 
 }
