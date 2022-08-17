@@ -3,6 +3,8 @@ package dev.airshareback.entities;
 import javax.persistence.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "air_data")
@@ -57,5 +59,6 @@ public class AirData {
     public void setCity(City city) {
         this.city = city;
     }
+
 }
 
