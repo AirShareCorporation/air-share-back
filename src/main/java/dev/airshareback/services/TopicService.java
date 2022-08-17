@@ -29,7 +29,8 @@ public class TopicService {
     public Topic create(@Valid TopicDto topicDto) {
 
         StringBuilder sb = new StringBuilder();
-        Optional<User> user = userService.findByFirst_name(topicDto.getUser());
+
+        Optional<User> user = userRepository.findByFirstName(topicDto.getUser());
         Optional<Category> category =  categoryService.findByName(topicDto.getCategory());
 
         if (user.isEmpty()) {
@@ -39,6 +40,7 @@ public class TopicService {
         if (category.isEmpty()) {
             sb.append("Category inexistante");
         }
+
 
         Topic topic = new Topic();
         topic.setTitle(topicDto.getTitle());
