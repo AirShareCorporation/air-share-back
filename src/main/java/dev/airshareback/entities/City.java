@@ -36,8 +36,7 @@ public class City {
     @Column(name = "gps_lng", nullable = false)
     private long gps_lng;
 
-    @OneToMany
-    private List<Address> listAdresses = new ArrayList<>();
+
 
     @ManyToOne(cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "departement_id", nullable = false)
@@ -45,6 +44,17 @@ public class City {
 
     @OneToMany(mappedBy = "city", orphanRemoval = true)
     private List<MeteoData> meteoDatas = new ArrayList<>();
+
+    @OneToMany(mappedBy = "city", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Address> addresses = new ArrayList<>();
+
+    public List<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<Address> addresses) {
+        this.addresses = addresses;
+    }
 
     public List<MeteoData> getMeteoDatas() {
         return meteoDatas;
@@ -127,14 +137,6 @@ public class City {
 
     public void setGps_lng(long gps_lng) {
         this.gps_lng = gps_lng;
-    }
-
-    public List<Address> getListAdresses() {
-        return listAdresses;
-    }
-
-    public void setListAdresses(List<Address> listAdresses) {
-        this.listAdresses = listAdresses;
     }
 
 }

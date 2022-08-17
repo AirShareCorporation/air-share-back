@@ -19,6 +19,18 @@ public class Address {
 
     private String additionnal;
 
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "city_id", nullable = false)
+    private City city;
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
+
     public String getStreet() {
         return street;
     }
