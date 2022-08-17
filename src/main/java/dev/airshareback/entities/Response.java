@@ -16,12 +16,12 @@ public class Response {
 
     private LocalDate writtenAt;
 
-    @ManyToOne(cascade = CascadeType.ALL, optional = false)
-    @JoinColumn(name = "user_id", nullable = false)
+    @ManyToOne
+    @JoinColumn
     private User user;
 
-    @ManyToOne(cascade = CascadeType.ALL, optional = false)
-    @JoinColumn(name = "topic_id", nullable = false)
+    @ManyToOne
+    @JoinColumn
     private Topic topic;
 
     public Response() {

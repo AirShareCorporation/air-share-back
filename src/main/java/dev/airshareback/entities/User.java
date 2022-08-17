@@ -22,16 +22,16 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @ManyToOne(cascade = CascadeType.ALL, optional = false)
-    @JoinColumn(name = "role_id", nullable = false)
+    @ManyToOne
+    @JoinColumn
     private Role role;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "status_id", nullable = false)
+    @ManyToOne
+    @JoinColumn
     private Status status;
 
-    @ManyToOne(cascade = CascadeType.ALL, optional = false)
-    @JoinColumn(name = "moderation_status_id", nullable = false)
+    @ManyToOne
+    @JoinColumn
     private ModerationStatus moderationStatus;
 
     public ModerationStatus getModerationStatus() {

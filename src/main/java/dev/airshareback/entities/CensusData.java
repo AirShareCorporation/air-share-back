@@ -19,8 +19,8 @@ public class CensusData {
     @Column(name = "data_census")
     private int dataCensus;
 
-    @ManyToOne(cascade = CascadeType.ALL, optional = false)
-    @JoinColumn(name = "city_id", nullable = false)
+    @ManyToOne
+    @JoinColumn
     private City city;
 
     public CensusData() {

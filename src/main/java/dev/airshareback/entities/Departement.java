@@ -28,8 +28,8 @@ public class Departement {
     @Column(name = "slug", length = 60, nullable = false)
     private String slug;
 
-    @ManyToOne(cascade = CascadeType.ALL, optional = false)
-    @JoinColumn(name = "region_id", nullable = false)
+    @ManyToOne
+    @JoinColumn
     private Region region;
 
     @OneToMany(mappedBy = "departement", cascade = CascadeType.ALL, orphanRemoval = true)

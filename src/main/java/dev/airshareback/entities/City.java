@@ -36,8 +36,8 @@ public class City {
 
 
 
-    @ManyToOne(cascade = CascadeType.ALL, optional = false)
-    @JoinColumn(name = "departement_id", nullable = false)
+    @ManyToOne
+    @JoinColumn
     private Departement departement;
 
     @OneToMany(mappedBy = "city", orphanRemoval = true)

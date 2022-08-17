@@ -19,12 +19,12 @@ public class Address {
 
     private String additionnal;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "city_id", nullable = false)
+    @ManyToOne
+    @JoinColumn
     private City city;
 
-    @OneToOne(orphanRemoval = true)
-    @JoinColumn(name = "user_id")
+    @OneToOne
+    @JoinColumn
     private User user;
 
     public User getUser() {

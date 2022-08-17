@@ -18,8 +18,8 @@ public class AirData {
     @Column(name = "date")
     private LocalDate date;
 
-    @ManyToOne(cascade = CascadeType.ALL, optional = false)
-    @JoinColumn(name = "city_id", nullable = false)
+    @ManyToOne
+    @JoinColumn
     private City city;
 
     @Column(name = "co")

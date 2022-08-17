@@ -14,8 +14,8 @@ public class MeteoData {
     @Column(name = "date", nullable = false)
     private Date date;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "city_id", nullable = false)
+    @ManyToOne
+    @JoinColumn
     private City city;
 
     @Column(name = "wind_10_m")
