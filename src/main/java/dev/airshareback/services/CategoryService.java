@@ -28,9 +28,11 @@ public class CategoryService {
         return categoryRepository.save(category);
     }
 
-    public Optional<Category> findByName(String name) {
-        return categoryRepository.findCategoryByName(name);
+
+    public Optional<Category> findByName(String nameRubrique) {
+        return categoryRepository.findByName(nameRubrique);
     }
+
 
     public List<Category> list() {
         return categoryRepository.findAll();
