@@ -4,36 +4,36 @@ import javax.validation.constraints.Email;
 import java.io.Serializable;
 
 public class UserDto implements Serializable {
-    private final String first_name;
-    private final String last_name;
+    private final String firstName;
+    private final String lastName;
     @Email
-    private final String mail_address;
+    private final String mailAddress;
     private final String password;
 
     private final String role;
     private final String status;
     private final String moderationStatus;
 
-    public UserDto(String first_name, String last_name, String mail_address, String password, String role, String status, String moderationStatus) {
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.mail_address = mail_address;
+    public UserDto(String firstName, String lastName, String mailAddress, String password, String role, String status, String moderationStatus) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.mailAddress = mailAddress;
         this.password = password;
         this.role = role;
         this.status = status;
         this.moderationStatus = moderationStatus;
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public String getMail_address() {
-        return mail_address;
+    public String getMailAddress() {
+        return mailAddress;
     }
 
     public String getPassword() {
