@@ -14,7 +14,7 @@ public class Response {
 
     private String content;
 
-    private LocalDate written_at;
+    private LocalDate writtenAt;
 
     @ManyToOne(cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
@@ -43,12 +43,12 @@ public class Response {
         this.content = content;
     }
 
-    public LocalDate getWritten_at() {
-        return written_at;
+    public LocalDate getWrittenAt() {
+        return writtenAt;
     }
 
-    public void setWritten_at(LocalDate written_at) {
-        this.written_at = written_at;
+    public void setWrittenAt(LocalDate written_at) {
+        this.writtenAt = written_at;
     }
 
     public User getUser() {

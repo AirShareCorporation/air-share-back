@@ -47,7 +47,7 @@ public class TopicService {
         topic.setCategory(category.get());
         topic.setHighlight(topicDto.getHighlight());
         topic.setUser(user.get());
-
+        
         return topicRepository.save(topic);
     }
 

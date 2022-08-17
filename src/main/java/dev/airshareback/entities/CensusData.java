@@ -3,8 +3,6 @@ package dev.airshareback.entities;
 import javax.persistence.*;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "census_data")
@@ -15,11 +13,11 @@ public class CensusData {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "date_meteo")
-    private LocalDate date_census;
+    @Column(name = "date")
+    private LocalDate date;
 
-    @Column(name = "data_meteo")
-    private int data_census;
+    @Column(name = "data_census")
+    private int dataCensus;
 
     @ManyToOne(cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "city_id", nullable = false)
@@ -37,20 +35,20 @@ public class CensusData {
         this.id = id;
     }
 
-    public LocalDate getDate_census() {
-        return date_census;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public void setDate_census(LocalDate date_census) {
-        this.date_census = date_census;
+    public void setDate(LocalDate date_census) {
+        this.date = date_census;
     }
 
-    public int getData_census() {
-        return data_census;
+    public int getDataCensus() {
+        return dataCensus;
     }
 
-    public void setData_census(int data_census) {
-        this.data_census = data_census;
+    public void setDataCensus(int data_census) {
+        this.dataCensus = data_census;
     }
 
     public City getCity() {

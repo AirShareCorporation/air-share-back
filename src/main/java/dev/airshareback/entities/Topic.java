@@ -16,7 +16,7 @@ public class Topic {
 
     private String message;
 
-    private LocalDate written_at;
+    private LocalDate writtenAt;
 
     private boolean highlight;
 
@@ -55,12 +55,12 @@ public class Topic {
         this.message = message;
     }
 
-    public LocalDate getWritten_at() {
-        return written_at;
+    public LocalDate getWrittenAt() {
+        return writtenAt;
     }
 
-    public void setWritten_at(LocalDate written_at) {
-        this.written_at = written_at;
+    public void setWrittenAt(LocalDate written_at) {
+        this.writtenAt = written_at;
     }
 
     public boolean isHighlight() {
