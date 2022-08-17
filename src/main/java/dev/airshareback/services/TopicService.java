@@ -28,7 +28,7 @@ public class TopicService {
     public Topic create(@Valid TopicDto topicDto) {
 
         StringBuilder sb = new StringBuilder();
-        Optional<User> user = userRepository.findByFirst_name(topicDto.getUser());
+        Optional<User> user = userRepository.findByFirstName(topicDto.getUser());
 
         Topic topic = new Topic();
         topic.setTitle(topicDto.getTitle());
