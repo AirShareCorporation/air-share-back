@@ -23,15 +23,15 @@ public class CategoryService {
 
         Category category = new Category();
 
-        category.setName(categoryDto.getName_rubrique());
+        category.setName(categoryDto.getName());
 
         return categoryRepository.save(category);
     }
 
+
     public Optional<Category> findByName(String nameRubrique) {
         return categoryRepository.findByName(nameRubrique);
     }
-
 
 
     public List<Category> list() {
