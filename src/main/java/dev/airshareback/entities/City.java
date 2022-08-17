@@ -2,7 +2,9 @@ package dev.airshareback.entities;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "city")
@@ -37,11 +39,40 @@ public class City {
     @OneToMany
     private List<Address> listAdresses = new ArrayList<>();
 
-    @OneToMany
-    private List<MeteoData> meteoDataList = new ArrayList<>();
+    @ManyToOne(cascade = CascadeType.ALL, optional = false)
+    @JoinColumn(name = "departement_id", nullable = false)
+    private Departement departement;
 
-    @OneToMany
-    private List<Departement> departementList = new ArrayList<>();
+    @OneToMany(mappedBy = "city", orphanRemoval = true)
+    private Set<MeteoData> meteoDatas = new LinkedHashSet<>();
+
+    @ManyToOne
+    @JoinColumn(name = "region_id")
+    private Region region;
+
+    public Region getRegion() {
+        return region;
+    }
+
+    public void setRegion(Region region) {
+        this.region = region;
+    }
+
+    public Set<MeteoData> getMeteoDatas() {
+        return meteoDatas;
+    }
+
+    public void setMeteoDatas(Set<MeteoData> meteoDatas) {
+        this.meteoDatas = meteoDatas;
+    }
+
+    public Departement getDepartement() {
+        return departement;
+    }
+
+    public void setDepartement(Departement departement) {
+        this.departement = departement;
+    }
 
     public City() {
     }
@@ -118,19 +149,4 @@ public class City {
         this.listAdresses = listAdresses;
     }
 
-    public List<MeteoData> getMeteoDataList() {
-        return meteoDataList;
-    }
-
-    public void setMeteoDataList(List<MeteoData> meteoDataList) {
-        this.meteoDataList = meteoDataList;
-    }
-
-    public List<Departement> getDepartementList() {
-        return departementList;
-    }
-
-    public void setDepartementList(List<Departement> departementList) {
-        this.departementList = departementList;
-    }
 }

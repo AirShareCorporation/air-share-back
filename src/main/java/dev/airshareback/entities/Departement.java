@@ -1,10 +1,15 @@
 package dev.airshareback.entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "departement")
 public class Departement {
+
+    public Departement() {
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,8 +28,16 @@ public class Departement {
     @Column(name = "slug", length = 60, nullable = false)
     private String slug;
 
+    @ManyToOne
+    @JoinColumn(name = "region_id")
+    private Region region;
 
-    public Departement() {
+    public Region getRegion() {
+        return region;
+    }
+
+    public void setRegion(Region region) {
+        this.region = region;
     }
 
     public Long getId() {
