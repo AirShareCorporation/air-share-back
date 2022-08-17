@@ -2,10 +2,11 @@ package dev.airshareback.services;
 
 import dev.airshareback.entities.AirData;
 import dev.airshareback.repositories.AirDataRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+@Service
 public class AirDataService {
     private AirDataRepository airDataRepository;
 

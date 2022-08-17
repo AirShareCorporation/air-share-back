@@ -15,15 +15,10 @@ import java.util.List;
 public class TopicController {
 
     private TopicService topicService;
-    private UserService userService;
-    private ResponseService responseService;
 
-    public TopicController(TopicService topicService, UserService userService, ResponseService responseService) {
+    public TopicController(TopicService topicService) {
         this.topicService = topicService;
-        this.userService = userService;
-        this.responseService = responseService;
     }
-
 
 
 }
