@@ -24,30 +24,16 @@ public class Region {
     @Column(name = "slug", length = 60, nullable = false)
     private String slug;
 
-
     @OneToMany(mappedBy = "region", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Departement> departements = new LinkedHashSet<>();
+    private List<Departement> departements = new ArrayList<>();
 
-    @OneToMany(mappedBy = "region", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<City> cities = new LinkedHashSet<>();
-
-    public Set<City> getCities() {
-        return cities;
-    }
-
-    public void setCities(Set<City> cities) {
-        this.cities = cities;
-    }
-
-    public Set<Departement> getDepartements() {
+    public List<Departement> getDepartements() {
         return departements;
     }
 
-    public void setDepartements(Set<Departement> departements) {
+    public void setDepartements(List<Departement> departements) {
         this.departements = departements;
     }
-
-
 
     public Region() {
     }
