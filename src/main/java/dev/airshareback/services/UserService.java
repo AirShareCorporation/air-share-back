@@ -43,9 +43,9 @@ public class UserService {
             sb.append("Statut de modération inexistant!");
 
         User user = new User();
-        user.setFirst_name(u.getFirst_name());
-        user.setLast_name(u.getLast_name());
-        user.setMail_address(u.getMail_address());
+        user.setFirstName(u.getFirst_name());
+        user.setLastName(u.getLast_name());
+        user.setMailAddress(u.getMail_address());
         // TODO: Hash
         user.setPassword(u.getPassword());
         user.setStatus(status.get());

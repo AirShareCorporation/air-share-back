@@ -2,9 +2,7 @@ package dev.airshareback.entities;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "city")
@@ -16,13 +14,13 @@ public class City {
     private Long id;
 
     @Column(name = "departement_code", length = 255, nullable = false)
-    private String departement_code;
+    private String departementCode;
 
     @Column(name = "insee_code", length = 15, nullable = false)
-    private String insee_code;
+    private String inseeCode;
 
     @Column(name = "zip_code", length = 5, nullable = false)
-    private String zip_code;
+    private String zipCode;
 
     @Column(name = "name", length = 60, nullable = false)
     private String name;
@@ -31,10 +29,10 @@ public class City {
     private String slug;
 
     @Column(name = "gps_lat", nullable = false)
-    private long gps_lat;
+    private long gpsLat;
 
     @Column(name = "gps_lng", nullable = false)
-    private long gps_lng;
+    private long gpsLng;
 
 
 
@@ -83,28 +81,28 @@ public class City {
         this.id = id;
     }
 
-    public String getDepartement_code() {
-        return departement_code;
+    public String getDepartementCode() {
+        return departementCode;
     }
 
-    public void setDepartement_code(String departement_code) {
-        this.departement_code = departement_code;
+    public void setDepartementCode(String departement_code) {
+        this.departementCode = departement_code;
     }
 
-    public String getInsee_code() {
-        return insee_code;
+    public String getInseeCode() {
+        return inseeCode;
     }
 
-    public void setInsee_code(String insee_code) {
-        this.insee_code = insee_code;
+    public void setInseeCode(String insee_code) {
+        this.inseeCode = insee_code;
     }
 
-    public String getZip_code() {
-        return zip_code;
+    public String getZipCode() {
+        return zipCode;
     }
 
-    public void setZip_code(String zip_code) {
-        this.zip_code = zip_code;
+    public void setZipCode(String zip_code) {
+        this.zipCode = zip_code;
     }
 
     public String getName() {
@@ -123,20 +121,20 @@ public class City {
         this.slug = slug;
     }
 
-    public long getGps_lat() {
-        return gps_lat;
+    public long getGpsLat() {
+        return gpsLat;
     }
 
-    public void setGps_lat(long gps_lat) {
-        this.gps_lat = gps_lat;
+    public void setGpsLat(long gps_lat) {
+        this.gpsLat = gps_lat;
     }
 
-    public long getGps_lng() {
-        return gps_lng;
+    public long getGpsLng() {
+        return gpsLng;
     }
 
-    public void setGps_lng(long gps_lng) {
-        this.gps_lng = gps_lng;
+    public void setGpsLng(long gps_lng) {
+        this.gpsLng = gps_lng;
     }
 
 }

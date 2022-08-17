@@ -11,13 +11,13 @@ public class User {
     private Long id;
 
     @Column(name = "first_name", nullable = false)
-    private String first_name;
+    private String firstName;
 
     @Column(name = "last_name", nullable = false)
-    private String last_name;
+    private String lastName;
 
     @Column(name = "mail_address", nullable = false, unique = true)
-    private String mail_address;
+    private String mailAddress;
 
     @Column(name = "password", nullable = false)
     private String password;
@@ -66,28 +66,28 @@ public class User {
         this.password = password;
     }
 
-    public String getMail_address() {
-        return mail_address;
+    public String getMailAddress() {
+        return mailAddress;
     }
 
-    public void setMail_address(String mail_address) {
-        this.mail_address = mail_address;
+    public void setMailAddress(String mail_address) {
+        this.mailAddress = mail_address;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public void setLastName(String last_name) {
+        this.lastName = last_name;
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setFirstName(String first_name) {
+        this.firstName = first_name;
     }
 
     public Long getId() {

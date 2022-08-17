@@ -12,7 +12,7 @@ public class Category {
     private Long id;
 
     @Column(name = "name_rubrique", nullable = false)
-    private String name_rubrique;
+    private String name;
 
     public Category() {
     }
@@ -25,11 +25,11 @@ public class Category {
         this.id = id;
     }
 
-    public String getName_rubrique() {
-        return name_rubrique;
+    public String getName() {
+        return name;
     }
 
-    public void setName_rubrique(String name_rubrique) {
-        this.name_rubrique = name_rubrique;
+    public void setName(String name_rubrique) {
+        this.name = name_rubrique;
     }
 }

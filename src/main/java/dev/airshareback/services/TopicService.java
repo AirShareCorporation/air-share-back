@@ -1,7 +1,6 @@
 package dev.airshareback.services;
 
 import dev.airshareback.controllers.dto.TopicDto;
-import dev.airshareback.entities.Role;
 import dev.airshareback.entities.Topic;
 import dev.airshareback.entities.User;
 import dev.airshareback.repositories.ResponseRepository;
@@ -34,7 +33,7 @@ public class TopicService {
         Topic topic = new Topic();
         topic.setTitle(topicDto.getTitle());
         topic.setMessage(topicDto.getMessage());
-        topic.setWritten_at(LocalDate.parse(topicDto.getWritten_at()));
+        topic.setWrittenAt(LocalDate.parse(topicDto.getWritten_at()));
         topic.setUser(topic.getUser());
         
 
