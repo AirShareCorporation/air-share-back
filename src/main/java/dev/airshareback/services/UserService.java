@@ -60,7 +60,7 @@ public class UserService {
     }
 
     public Optional<User> findByFirst_name(String first_name) {
-        return userRepository.findByFirst_name(first_name);
+        return userRepository.findByFirstName(first_name);
     }
 
     public Optional<User> get(int id) {
