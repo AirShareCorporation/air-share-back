@@ -23,6 +23,18 @@ public class Address {
     @JoinColumn(name = "city_id", nullable = false)
     private City city;
 
+    @OneToOne(orphanRemoval = true)
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public City getCity() {
         return city;
     }
