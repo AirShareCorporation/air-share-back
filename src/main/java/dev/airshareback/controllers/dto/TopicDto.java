@@ -10,13 +10,16 @@ public class TopicDto implements Serializable {
     private final String written_at;
     private final boolean highlight;
     private final String user;
+    private final String category;
 
-    public TopicDto(String title, String message, String written_at, boolean highlight, String user) {
+    public TopicDto(String title, String message, String written_at, boolean highlight,
+                    String user, String category) {
         this.title = title;
         this.message = message;
         this.written_at = written_at;
         this.highlight = highlight;
         this.user = user;
+        this.category = category;
     }
 
     public String getTitle() {
@@ -37,5 +40,9 @@ public class TopicDto implements Serializable {
 
     public String getUser() {
         return user;
+    }
+
+    public String getCategory() {
+        return category;
     }
 }
