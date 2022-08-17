@@ -2,10 +2,12 @@ package dev.airshareback.services;
 
 import dev.airshareback.entities.MeteoData;
 import dev.airshareback.repositories.MeteoDataRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class MeteoDataService {
     private MeteoDataRepository meteoDataRepository;
 
