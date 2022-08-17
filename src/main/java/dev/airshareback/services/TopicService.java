@@ -33,7 +33,7 @@ public class TopicService {
         Topic topic = new Topic();
         topic.setTitle(topicDto.getTitle());
         topic.setMessage(topicDto.getMessage());
-        topic.setWrittenAt(LocalDate.parse(topicDto.getWritten_at()));
+        topic.setWrittenAt(LocalDate.parse(topicDto.getWrittenAt()));
         topic.setUser(topic.getUser());
         
 
