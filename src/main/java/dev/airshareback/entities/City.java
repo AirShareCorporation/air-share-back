@@ -44,25 +44,13 @@ public class City {
     private Departement departement;
 
     @OneToMany(mappedBy = "city", orphanRemoval = true)
-    private Set<MeteoData> meteoDatas = new LinkedHashSet<>();
+    private List<MeteoData> meteoDatas = new ArrayList<>();
 
-    @ManyToOne
-    @JoinColumn(name = "region_id")
-    private Region region;
-
-    public Region getRegion() {
-        return region;
-    }
-
-    public void setRegion(Region region) {
-        this.region = region;
-    }
-
-    public Set<MeteoData> getMeteoDatas() {
+    public List<MeteoData> getMeteoDatas() {
         return meteoDatas;
     }
 
-    public void setMeteoDatas(Set<MeteoData> meteoDatas) {
+    public void setMeteoDatas(List<MeteoData> meteoDatas) {
         this.meteoDatas = meteoDatas;
     }
 
