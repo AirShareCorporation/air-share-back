@@ -1,25 +1,20 @@
 package dev.airshareback.controllers.dto;
 
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.util.Objects;
 
 public class TopicDto implements Serializable {
     private final String title;
     private final String message;
-    private final String written_at;
+    private final String writtenAt;
     private final boolean highlight;
     private final String user;
-    private final String category;
 
-    public TopicDto(String title, String message, String written_at, boolean highlight,
-                    String user, String category) {
+    public TopicDto(String title, String message, String writtenAt, boolean highlight, String user) {
         this.title = title;
         this.message = message;
-        this.written_at = written_at;
+        this.writtenAt = writtenAt;
         this.highlight = highlight;
         this.user = user;
-        this.category = category;
     }
 
     public String getTitle() {
@@ -30,8 +25,8 @@ public class TopicDto implements Serializable {
         return message;
     }
 
-    public String getWritten_at() {
-        return written_at;
+    public String getWrittenAt() {
+        return writtenAt;
     }
 
     public boolean getHighlight() {
@@ -40,9 +35,5 @@ public class TopicDto implements Serializable {
 
     public String getUser() {
         return user;
-    }
-
-    public String getCategory() {
-        return category;
     }
 }
