@@ -1,6 +1,7 @@
 package dev.airshareback.entities;
 
 import javax.persistence.*;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +26,7 @@ public class CensusData {
     private City city;
 
     public CensusData() {
+
     }
 
     public Long getId() {
