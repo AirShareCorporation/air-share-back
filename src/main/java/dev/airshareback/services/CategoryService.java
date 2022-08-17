@@ -34,7 +34,6 @@ public class CategoryService {
 
 
 
-
     public List<Category> list() {
         return categoryRepository.findAll();
     }
