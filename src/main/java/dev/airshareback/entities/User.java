@@ -10,6 +10,9 @@ public class User {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @Column(name = "pseudo", length = 30, nullable = false)
+    private String pseudo;
+
     @Column(name = "first_name", nullable = false)
     private String firstName;
 
@@ -88,6 +91,14 @@ public class User {
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    public String getPseudo() {
+        return pseudo;
+    }
+
+    public void setPseudo(String pseudo) {
+        this.pseudo = pseudo;
     }
 
     public Long getId() {
