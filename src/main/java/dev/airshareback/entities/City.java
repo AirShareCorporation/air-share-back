@@ -1,5 +1,7 @@
 package dev.airshareback.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,15 +31,16 @@ public class City {
     private String slug;
 
     @Column(name = "gps_lat", nullable = false)
-    private long gpsLat;
+    private Double gpsLat;
 
     @Column(name = "gps_lng", nullable = false)
-    private long gpsLng;
+    private Double gpsLng;
 
 
 
     @ManyToOne
     @JoinColumn
+    @JsonIgnore
     private Departement departement;
 
     @OneToMany(mappedBy = "city", orphanRemoval = true)
@@ -121,19 +124,19 @@ public class City {
         this.slug = slug;
     }
 
-    public long getGpsLat() {
+    public Double getGpsLat() {
         return gpsLat;
     }
 
-    public void setGpsLat(long gps_lat) {
+    public void setGpsLat(Double gps_lat) {
         this.gpsLat = gps_lat;
     }
 
-    public long getGpsLng() {
+    public Double getGpsLng() {
         return gpsLng;
     }
 
-    public void setGpsLng(long gps_lng) {
+    public void setGpsLng(Double gps_lng) {
         this.gpsLng = gps_lng;
     }
 

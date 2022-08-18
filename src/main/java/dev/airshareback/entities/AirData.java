@@ -1,10 +1,8 @@
 package dev.airshareback.entities;
 
 import javax.persistence.*;
-
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "air_data")
@@ -15,8 +13,8 @@ public class AirData {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "date")
-    private LocalDate date;
+    @Column(name = "datetime")
+    private LocalDateTime datetime;
 
     @ManyToOne
     @JoinColumn
@@ -165,12 +163,12 @@ public class AirData {
         this.id = id;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public LocalDateTime getDate() {
+        return datetime;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public void setDate(LocalDateTime datetime) {
+        this.datetime = datetime;
     }
 
     public City getCity() {
