@@ -1,5 +1,7 @@
 package dev.airshareback.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -25,6 +27,7 @@ public class Region {
     private String slug;
 
     @OneToMany(mappedBy = "region", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private List<Departement> departements = new ArrayList<>();
 
     public List<Departement> getDepartements() {
