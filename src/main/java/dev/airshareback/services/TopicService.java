@@ -49,8 +49,12 @@ public class TopicService {
         return topicRepository.findAll();
     }
 
-    public Optional<Topic> get(int id) {
+    public Optional<Topic> get(Long id) {
         return topicRepository.findById(id);
+    }
+
+    public Optional<Topic> deleteTopic(Long id) {
+        return topicRepository.deleteById(id);
     }
 
 }

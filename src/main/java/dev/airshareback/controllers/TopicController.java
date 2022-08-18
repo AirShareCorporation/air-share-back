@@ -3,8 +3,8 @@ package dev.airshareback.controllers;
 import dev.airshareback.controllers.dto.TopicDto;
 import dev.airshareback.entities.Topic;
 import dev.airshareback.repositories.TopicRepository;
-import dev.airshareback.services.ResponseService;
 import dev.airshareback.services.TopicService;
+import dev.airshareback.services.ResponseService;
 import dev.airshareback.services.UserService;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,7 +29,8 @@ public class TopicController {
     }
 
     @GetMapping("topic/{id}")
-    public Optional<Topic> get(@PathVariable int id) {
+    public Optional<Topic> get(@PathVariable Long id) {
+
         return this.topicService.get(id);
     }
 
@@ -39,7 +40,8 @@ public class TopicController {
     }
 
     @DeleteMapping("topic/{id}")
-    void deleteTopic(@PathVariable int id) {
-        topicRepository.deleteById(id);
+
+    void deleteTopic(@PathVariable Long id) {
+        topicService.deleteTopic(id);
     }
 }

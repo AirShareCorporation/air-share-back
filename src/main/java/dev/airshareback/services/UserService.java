@@ -64,7 +64,7 @@ public class UserService {
         return userRepository.findByPseudo(pseudo);
     }
 
-    public Optional<User> get(int id) {
+    public Optional<User> get(Long id) {
         return userRepository.findById(id);
     }
 
