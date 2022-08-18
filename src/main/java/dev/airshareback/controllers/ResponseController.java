@@ -19,20 +19,20 @@ public class ResponseController {
     }
 
 
-    @GetMapping("topic/{id}")
-    public Optional<Response> getResponseByTopic(@PathVariable int id) {
-        return this.responseService.listByTopic(id);
+    @GetMapping("topic/{id}/responses")
+    public List<Response> getResponseByTopic(@PathVariable String id) {
+        return this.responseService.listByTopic(Long.valueOf(id));
     }
 
     @PostMapping("topic/{id}/newPost")
-    public void create(@PathVariable int id, @RequestBody ResponseDto responseDto) {
+    public void create(@PathVariable Long id, @RequestBody ResponseDto responseDto) {
         this.responseService.create(responseDto);
     }
 
-    @PostMapping("topic/{id}/editResponse/{id}")
-    public void edit(@PathVariable int id, @RequestBody String newContent) {
+    /*@PostMapping("topic/{id}/editResponse/{responseId}")
+    public void edit(@PathVariable int responseId, @RequestBody String newContent) {
 
-    }
+    }*/
 
 
 }

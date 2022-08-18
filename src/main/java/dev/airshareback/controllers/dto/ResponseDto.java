@@ -11,9 +11,9 @@ public class ResponseDto implements Serializable {
     private final LocalDate writtenAt;
     private final boolean highlight;
     private final String user;
-    private final int topic;
+    private final Long topic;
 
-    public ResponseDto(String content, String message, boolean highlight, String user, int topic) {
+    public ResponseDto(String content, String message, boolean highlight, String user, Long topic) {
         this.content = content;
         this.writtenAt = LocalDate.now();
         this.highlight = highlight;
@@ -38,7 +38,7 @@ public class ResponseDto implements Serializable {
         return content;
     }
 
-    public int getTopic() {
+    public Long getTopic() {
         return topic;
     }
 }

@@ -9,12 +9,14 @@ import dev.airshareback.repositories.ResponseRepository;
 import dev.airshareback.repositories.TopicRepository;
 import dev.airshareback.repositories.UserRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@Transactional
 public class ResponseService {
 
     private ResponseRepository responseRepository;
@@ -25,9 +27,9 @@ public class ResponseService {
         this.responseRepository = responseRepository;
     }
 
-    public Optional<Response> listByTopic(int topicId) {
-        return responseRepository.findByTopic(topicId);
-    };
+    public List<Response> listByTopic(Long topicId) {
+        return responseRepository.findByTopicId(topicId);
+    }
 
     public List<Response> list() {
         return responseRepository.findAll();
@@ -52,7 +54,7 @@ public class ResponseService {
 
     }*/
 
-    public Optional<Response> get(int id) {
+    public Optional<Response> get(Long id) {
         return responseRepository.findById(id);
     }
 
