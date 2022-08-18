@@ -4,17 +4,19 @@ import javax.validation.constraints.Email;
 import java.io.Serializable;
 
 public class UserDto implements Serializable {
+    private final String pseudo;
     private final String firstName;
     private final String lastName;
     @Email
     private final String mailAddress;
     private final String password;
-
     private final String role;
     private final String status;
     private final String moderationStatus;
 
-    public UserDto(String firstName, String lastName, String mailAddress, String password, String role, String status, String moderationStatus) {
+    public UserDto(String pseudo, String firstName, String lastName, String mailAddress,
+                   String password, String role, String status, String moderationStatus) {
+        this.pseudo = pseudo;
         this.firstName = firstName;
         this.lastName = lastName;
         this.mailAddress = mailAddress;
@@ -23,7 +25,9 @@ public class UserDto implements Serializable {
         this.status = status;
         this.moderationStatus = moderationStatus;
     }
-
+    public String getPseudo() {
+        return pseudo;
+    }
     public String getFirstName() {
         return firstName;
     }
