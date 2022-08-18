@@ -72,7 +72,7 @@ public class AirDataService {
         airData.setLatitude(json.get("data").get("city").get("geo").get(0).asDouble());
         airData.setLongitude(json.get("data").get("city").get("geo").get(1).asDouble());
 
-        Optional<City> c = cityRepository.findByName(name);
+        Optional<City> c = cityRepository.findBySlug(name);
         airData.setCity(c.get());
 
         return airDataRepository.save(airData);
