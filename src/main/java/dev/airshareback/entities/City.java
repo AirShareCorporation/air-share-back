@@ -37,13 +37,13 @@ public class City {
     private Double gpsLng;
 
 
-
     @ManyToOne
     @JoinColumn
     @JsonIgnore
     private Departement departement;
 
     @OneToMany(mappedBy = "city", orphanRemoval = true)
+    @JsonIgnore
     private List<MeteoData> meteoDatas = new ArrayList<>();
 
     @OneToMany(mappedBy = "city", cascade = CascadeType.ALL, orphanRemoval = true)
