@@ -43,6 +43,7 @@ public class UserService {
             sb.append("Statut de modération inexistant!");
 
         User user = new User();
+        user.setPseudo(u.getPseudo());
         user.setFirstName(u.getFirstName());
         user.setLastName(u.getLastName());
         user.setMailAddress(u.getMailAddress());
@@ -59,11 +60,13 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public Optional<User> findByFirst_name(String firstName) {
-        return userRepository.findByFirstName(firstName);
+    public Optional<User> findByFirst_name(String pseudo) {
+        return userRepository.findByPseudo(pseudo);
     }
 
-    public Optional<User> get(int id) {
+    public Optional<User> get(Long id) {
         return userRepository.findById(id);
     }
+
+
 }

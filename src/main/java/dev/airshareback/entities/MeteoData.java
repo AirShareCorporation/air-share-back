@@ -1,6 +1,7 @@
 package dev.airshareback.entities;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -12,7 +13,7 @@ public class MeteoData {
     private Long id;
 
     @Column(name = "date", nullable = false)
-    private Date date;
+    private LocalDateTime dateTime;
 
     @ManyToOne
     @JoinColumn
@@ -227,9 +228,6 @@ public class MeteoData {
     public MeteoData() {
     }
 
-    public Date getDate() {
-        return date;
-    }
 
     public Long getId() {
         return id;
@@ -239,9 +237,11 @@ public class MeteoData {
         this.id = id;
     }
 
-    public void setDate(Date date_meteo) {
-        this.date = date_meteo;
+    public LocalDateTime getDateTime() {
+        return dateTime;
     }
 
-
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
+    }
 }

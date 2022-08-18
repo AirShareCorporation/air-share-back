@@ -19,7 +19,6 @@ public class CategoryService {
     }
 
     public Category create(@Valid CategoryDto categoryDto) {
-        StringBuilder sb = new StringBuilder();
 
         Category category = new Category();
 
@@ -28,11 +27,9 @@ public class CategoryService {
         return categoryRepository.save(category);
     }
 
-
     public Optional<Category> findByName(String nameRubrique) {
         return categoryRepository.findByName(nameRubrique);
     }
-
 
     public List<Category> list() {
         return categoryRepository.findAll();
@@ -41,4 +38,10 @@ public class CategoryService {
     public Optional<Category> get(int id) {
         return categoryRepository.findById(id);
     }
+
+    public Optional<Category> getCategory(Long id) {
+        return categoryRepository.findById(id);
+    }
+
+
 }

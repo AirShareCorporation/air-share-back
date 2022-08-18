@@ -7,33 +7,35 @@ public class TopicDto implements Serializable {
     private final String message;
     private final String writtenAt;
     private final boolean highlight;
-    private final String user;
+    private final String pseudo;
+    private final String category;
 
-    public TopicDto(String title, String message, String writtenAt, boolean highlight, String user) {
+    public TopicDto(String title, String message, String writtenAt, boolean highlight,
+                    String user, String pseudo , String category) {
         this.title = title;
         this.message = message;
         this.writtenAt = writtenAt;
         this.highlight = highlight;
-        this.user = user;
+        this.category = category;
+        this.pseudo = pseudo;
     }
 
     public String getTitle() {
         return title;
     }
-
     public String getMessage() {
         return message;
     }
-
     public String getWrittenAt() {
         return writtenAt;
     }
-
     public boolean getHighlight() {
         return highlight;
     }
-
-    public String getUser() {
-        return user;
+    public String getPseudo() {
+        return pseudo;
+    }
+    public String getCategory() {
+        return category;
     }
 }

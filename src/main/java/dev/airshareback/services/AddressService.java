@@ -23,5 +23,4 @@ public class AddressService {
     public Optional<Address> get(int id) {
         return addressRepository.findById(id);
     }
-
 }

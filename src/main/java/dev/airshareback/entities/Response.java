@@ -12,6 +12,7 @@ public class Response {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @Lob
     private String content;
 
     private LocalDate writtenAt;
