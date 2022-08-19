@@ -11,19 +11,14 @@ public class UserDto implements Serializable {
     private final String mailAddress;
     private final String password;
     private final String role;
-    private final String status;
-    private final String moderationStatus;
 
-    public UserDto(String pseudo, String firstName, String lastName, String mailAddress,
-                   String password, String role, String status, String moderationStatus) {
+    public UserDto(String pseudo, String firstName, String lastName, String mailAddress, String password, String role) {
         this.pseudo = pseudo;
         this.firstName = firstName;
         this.lastName = lastName;
         this.mailAddress = mailAddress;
         this.password = password;
         this.role = role;
-        this.status = status;
-        this.moderationStatus = moderationStatus;
     }
     public String getPseudo() {
         return pseudo;
@@ -46,13 +41,5 @@ public class UserDto implements Serializable {
 
     public String getRole() {
         return role;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public String getModerationStatus() {
-        return moderationStatus;
     }
 }
