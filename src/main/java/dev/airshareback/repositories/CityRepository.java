@@ -7,4 +7,5 @@ import java.util.Optional;
 
 public interface CityRepository extends JpaRepository<City, Integer> {
     public Optional<City> findByName(String name);
+    public Optional<City> findBySlug(String slug);
 }

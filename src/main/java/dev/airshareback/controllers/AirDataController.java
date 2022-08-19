@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @CrossOrigin(allowCredentials = "true", origins = "http://localhost:4200/")
@@ -21,7 +20,7 @@ public class AirDataController {
     }
 
     @GetMapping("air-record/{city}")
-    public List<AirData> getRecord(@PathVariable String city) {
+    public List<AirData> getAirRecord(@PathVariable String city) {
         return airDataService.getRecord(city);
     }
 
