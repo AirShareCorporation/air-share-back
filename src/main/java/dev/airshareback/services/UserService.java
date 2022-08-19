@@ -34,7 +34,7 @@ public class UserService {
         Optional<ModerationStatus> moderationStatus = mss.findByName(u.getModerationStatus());
 
         if (role.isEmpty())
-            sb.append("Role inexistant!!!!!!!!!!");
+            sb.append("Role inexistant!");
 
         if (status.isEmpty())
             sb.append("Statut inexistant!");

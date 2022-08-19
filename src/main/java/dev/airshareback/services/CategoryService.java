@@ -1,7 +1,6 @@
 package dev.airshareback.services;
 
 import dev.airshareback.controllers.dto.CategoryDto;
-import dev.airshareback.entities.AirData;
 import dev.airshareback.entities.Category;
 import dev.airshareback.repositories.CategoryRepository;
 import org.springframework.stereotype.Service;

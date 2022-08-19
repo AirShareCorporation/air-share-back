@@ -1,9 +1,7 @@
 package dev.airshareback.services;
 
 import dev.airshareback.entities.Address;
-import dev.airshareback.entities.AirData;
 import dev.airshareback.repositories.AddressRepository;
-import dev.airshareback.repositories.AirDataRepository;
 
 import java.util.List;
 import java.util.Optional;

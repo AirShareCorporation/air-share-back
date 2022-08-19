@@ -10,8 +10,10 @@ import dev.airshareback.repositories.CityRepository;
 import dev.airshareback.repositories.MeteoDataRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import org.springframework.web.util.UriBuilder;
-
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -26,11 +28,12 @@ public class MeteoDataService {
         this.meteoDataRepository = meteoDataRepository;
         this.cityRepository = cityRepository;
     }
-
+    
     public List<MeteoData> getMeteoRecord(String name) {
         Optional<City> c = cityRepository.findByName(name);
         return meteoDataRepository.findByCityOrderByDateTimeDesc(c.get().getId());
     }
+    
 
     public MeteoData getMeteoNow(String city) throws IOException {
         City c = cityRepository.findBySlug(city).get();
