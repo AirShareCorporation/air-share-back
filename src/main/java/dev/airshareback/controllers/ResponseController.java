@@ -6,7 +6,6 @@ import dev.airshareback.services.ResponseService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @CrossOrigin(allowCredentials = "true", origins = "http://localhost:4200/")
@@ -25,14 +24,18 @@ public class ResponseController {
     }
 
     @PostMapping("topic/{id}/newpost")
-    public void create(@PathVariable Long id, @RequestBody ResponseDto responseDto) {
+    public void create(@RequestBody ResponseDto responseDto) {
         this.responseService.create(responseDto);
     }
 
-    /*@PostMapping("topic/{id}/editResponse/{responseId}")
-    public void edit(@PathVariable int responseId, @RequestBody String newContent) {
+    @PostMapping("topic/{id}/editResponse/{responseId}")
+    public void edit(@PathVariable String responseId, @RequestBody ResponseDto responseDto) {
+        this.responseService.edit(Long.valueOf(responseId), responseDto);
+    }
 
-    }*/
-
+    @DeleteMapping("topic/{topicId}/response/{respId}")
+    void deleteTopic(@PathVariable Long respId) {
+        responseService.deleteResponse(respId);
+    }
 
 }

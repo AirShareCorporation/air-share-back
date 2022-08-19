@@ -1,10 +1,7 @@
 package dev.airshareback.controllers.dto;
 
-import net.bytebuddy.asm.Advice;
 
-import javax.validation.constraints.Email;
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class ResponseDto implements Serializable {
