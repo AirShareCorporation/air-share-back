@@ -13,7 +13,6 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
@@ -55,15 +54,24 @@ public class AirDataService {
 
         if (json.get("data").get("iaqi").get("co") != null)
             airData.setCo(json.get("data").get("iaqi").get("co").get("v").asDouble());
-        airData.setH(json.get("data").get("iaqi").get("h").get("v").asDouble());
-        airData.setNo2(json.get("data").get("iaqi").get("no2").get("v").asDouble());
-        airData.setO3(json.get("data").get("iaqi").get("o3").get("v").asDouble());
-        airData.setP(json.get("data").get("iaqi").get("p").get("v").asDouble());
-        airData.setPm10(json.get("data").get("iaqi").get("pm10").get("v").asDouble());
-        airData.setPm25(json.get("data").get("iaqi").get("pm25").get("v").asDouble());
-        airData.setSo2(json.get("data").get("iaqi").get("so2").get("v").asDouble());
-        airData.setT(json.get("data").get("iaqi").get("t").get("v").asDouble());
-        airData.setW(json.get("data").get("iaqi").get("w").get("v").asDouble());
+        if (json.get("data").get("iaqi").get("h") != null)
+            airData.setH(json.get("data").get("iaqi").get("h").get("v").asDouble());
+        if (json.get("data").get("iaqi").get("no2") != null)
+            airData.setNo2(json.get("data").get("iaqi").get("no2").get("v").asDouble());
+        if (json.get("data").get("iaqi").get("o3") != null)
+            airData.setO3(json.get("data").get("iaqi").get("o3").get("v").asDouble());
+        if (json.get("data").get("iaqi").get("p") != null)
+            airData.setP(json.get("data").get("iaqi").get("p").get("v").asDouble());
+        if (json.get("data").get("iaqi").get("pm10") != null)
+            airData.setPm10(json.get("data").get("iaqi").get("pm10").get("v").asDouble());
+        if (json.get("data").get("iaqi").get("pm25") != null)
+            airData.setPm25(json.get("data").get("iaqi").get("pm25").get("v").asDouble());
+        if (json.get("data").get("iaqi").get("so2") != null)
+            airData.setSo2(json.get("data").get("iaqi").get("so2").get("v").asDouble());
+        if (json.get("data").get("iaqi").get("t") != null)
+            airData.setT(json.get("data").get("iaqi").get("t").get("v").asDouble());
+        if (json.get("data").get("iaqi").get("w") != null)
+            airData.setW(json.get("data").get("iaqi").get("w").get("v").asDouble());
 
         airData.setDate(LocalDateTime.now());
 

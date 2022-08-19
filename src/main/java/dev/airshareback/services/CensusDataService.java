@@ -6,38 +6,38 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.airshareback.entities.CensusData;
 import dev.airshareback.entities.City;
+import dev.airshareback.entities.Departement;
 import dev.airshareback.repositories.CensusDataRepository;
 import dev.airshareback.repositories.CityRepository;
+import dev.airshareback.repositories.DepartementRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.util.UriBuilder;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Optional;
 
 @Service
 public class CensusDataService {
     private CensusDataRepository censusDataRepository;
     private CityRepository cityRepository;
+    private DepartementRepository departementRepository;
 
-    public CensusDataService(CensusDataRepository censusDataRepository, CityRepository cityRepository) {
+
+    public CensusDataService(CensusDataRepository censusDataRepository, CityRepository cityRepository, DepartementRepository departementRepository) {
         this.censusDataRepository = censusDataRepository;
         this.cityRepository = cityRepository;
+        this.departementRepository = departementRepository;
     }
 
     public CensusData getCensus(String city) throws IOException {
-        City c = cityRepository.findBySlug(city).get();
-        String insee = c.getInseeCode();
-
+        Optional<City> c = cityRepository.findBySlug(city);
         WebClient client = WebClient.builder()
-            .baseUrl(String.format("https://api.insee.fr/donnees-locales/V0.1/donnees/geo-SEXE-AGE15_15_90@GEO2021RP2018/COM-%s.all.all", insee))
-            .defaultHeader("Accept", "application/json")
+            .baseUrl(String.format("https://geo.api.gouv.fr/communes?nom=%s", city))
             .build();
         String data = client.get()
             .uri(UriBuilder::build)
-            .headers(h -> h.setBearerAuth("97b049c8-37f5-3a75-bf08-43273a413cfa"))
             .retrieve()
             .bodyToMono(String.class)
             .block();
@@ -47,11 +47,22 @@ public class CensusDataService {
         JsonParser parser = factory.createParser(data);
         JsonNode json = mapper.readTree(parser);
 
+        if (c.isEmpty()) {
+            City newCity = new City();
+
+            newCity.setDepartementCode(json.get(0).get("codeDepartement").asText());
+            newCity.setInseeCode(json.get(0).get("code").asText());
+            newCity.setName(json.get(0).get("nom").asText());
+            newCity.setSlug(json.get(0).get("nom").asText().toLowerCase());
+            Optional<Departement> dept = departementRepository.findByCode(json.get(0).get("codeDepartement").asText());
+            newCity.setDepartement(dept.get());
+            cityRepository.save(newCity);
+        }
         CensusData censusData = new CensusData();
 
-        censusData.setDataCensus(json.get("Cellule").get(0).get("Valeur").asInt());
+        censusData.setDataCensus(json.get(0).get("population").asInt());
         censusData.setDate(LocalDate.now());
-        censusData.setCity(c);
+        censusData.setCity(cityRepository.findBySlug(city).get());
 
         return censusDataRepository.save(censusData);
     }
