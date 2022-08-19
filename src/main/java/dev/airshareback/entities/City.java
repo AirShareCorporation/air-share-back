@@ -21,7 +21,7 @@ public class City {
     @Column(name = "insee_code", length = 15, nullable = false)
     private String inseeCode;
 
-    @Column(name = "zip_code", length = 5, nullable = false)
+    @Column(name = "zip_code", length = 5)
     private String zipCode;
 
     @Column(name = "name", length = 60, nullable = false)
@@ -30,10 +30,10 @@ public class City {
     @Column(name = "slug", length = 60, nullable = false)
     private String slug;
 
-    @Column(name = "gps_lat", nullable = false)
+    @Column(name = "gps_lat")
     private Double gpsLat;
 
-    @Column(name = "gps_lng", nullable = false)
+    @Column(name = "gps_lng")
     private Double gpsLng;
 
 
