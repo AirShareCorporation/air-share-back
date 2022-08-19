@@ -1,7 +1,6 @@
 package dev.airshareback.services;
 
 import dev.airshareback.controllers.dto.ResponseDto;
-import dev.airshareback.entities.AirData;
 import dev.airshareback.entities.Response;
 import dev.airshareback.entities.Topic;
 import dev.airshareback.entities.User;
@@ -53,12 +52,22 @@ public class ResponseService {
         return responseRepository.save(response);
     }
 
-    /*public  Response edit(int id , @Valid ResponseDto r) {
+    public  Response edit(Long responseId, @Valid ResponseDto r) {
 
-    }*/
+        Optional<Response> response = responseRepository.findById(responseId);
+
+
+        response.get().setContent(r.getContent());
+
+        return responseRepository.save(response.get());
+    }
 
     public Optional<Response> get(Long id) {
         return responseRepository.findById(id);
+    }
+
+    public Optional<Response> deleteResponse(Long respId) {
+        return responseRepository.deleteById(respId);
     }
 
 }
