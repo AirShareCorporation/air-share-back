@@ -16,7 +16,7 @@ public class Departement {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "region_code", length = 5, nullable = false)
+    @Column(name = "region_code", length = 100, nullable = false)
     private String regionCode;
 
     @Column(name = "code", nullable = false)

@@ -4,8 +4,6 @@ import dev.airshareback.controllers.dto.TopicDto;
 import dev.airshareback.entities.Topic;
 import dev.airshareback.repositories.TopicRepository;
 import dev.airshareback.services.TopicService;
-import dev.airshareback.services.ResponseService;
-import dev.airshareback.services.UserService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
