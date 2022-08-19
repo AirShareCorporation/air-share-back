@@ -21,7 +21,7 @@ public class ResponseService {
         return responseRepository.findAll();
     }
 
-    public Optional<Response> get(int id) {
+    public Optional<Response> get(Long id) {
         return responseRepository.findById(id);
     }
 

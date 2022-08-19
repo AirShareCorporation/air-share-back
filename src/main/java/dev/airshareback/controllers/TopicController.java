@@ -30,7 +30,6 @@ public class TopicController {
 
     @GetMapping("topic/{id}")
     public Optional<Topic> get(@PathVariable Long id) {
-
         return this.topicService.get(id);
     }
 
