@@ -21,10 +21,12 @@ public class ResponseService {
 
     private ResponseRepository responseRepository;
     private TopicRepository topicRepository;
-
     private UserRepository userRepository;
-    public ResponseService(ResponseRepository responseRepository) {
+
+    public ResponseService(ResponseRepository responseRepository, UserRepository userRepository, TopicRepository topicRepository) {
         this.responseRepository = responseRepository;
+        this.userRepository = userRepository;
+        this.topicRepository = topicRepository;
     }
 
     public List<Response> listByTopic(Long topicId) {
@@ -38,7 +40,7 @@ public class ResponseService {
     public Response create(@Valid ResponseDto r) {
 
         Optional<Topic> topic = topicRepository.findById(r.getTopic());
-        Optional<User> user = userRepository.findByPseudo(r.getUser());
+        Optional<User> user = userRepository.findById(r.getUser());
 
         Response response = new Response();
 
@@ -46,6 +48,7 @@ public class ResponseService {
         response.setWrittenAt(r.getWrittenAt());
         response.setTopic(topic.get());
         response.setUser(user.get());
+
 
         return responseRepository.save(response);
     }

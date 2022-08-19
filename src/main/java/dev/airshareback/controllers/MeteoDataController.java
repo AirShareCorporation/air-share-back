@@ -2,7 +2,6 @@ package dev.airshareback.controllers;
 
 import dev.airshareback.entities.MeteoData;
 import dev.airshareback.services.MeteoDataService;
-import org.hibernate.boot.Metadata;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 

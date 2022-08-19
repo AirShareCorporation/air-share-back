@@ -5,24 +5,25 @@ import net.bytebuddy.asm.Advice;
 import javax.validation.constraints.Email;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class ResponseDto implements Serializable {
     private final String content;
-    private final LocalDate writtenAt;
+    private final LocalDateTime writtenAt;
     private final boolean highlight;
-    private final String user;
+    private final Long user;
     private final Long topic;
 
-    public ResponseDto(String content, String message, boolean highlight, String user, Long topic) {
+    public ResponseDto(String content, String message, boolean highlight, Long user, Long topic) {
         this.content = content;
-        this.writtenAt = LocalDate.now();
+        this.writtenAt = LocalDateTime.now();
         this.highlight = highlight;
         this.user = user;
         this.topic = topic;
     }
 
 
-    public LocalDate getWrittenAt() {
+    public LocalDateTime getWrittenAt() {
         return writtenAt;
     }
 
@@ -30,7 +31,7 @@ public class ResponseDto implements Serializable {
         return highlight;
     }
 
-    public String getUser() {
+    public Long getUser() {
         return user;
     }
 

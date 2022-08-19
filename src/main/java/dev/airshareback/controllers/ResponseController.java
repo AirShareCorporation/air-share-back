@@ -14,8 +14,8 @@ public class ResponseController {
 
     private ResponseService  responseService;
 
-    public ResponseController(ResponseService userService) {
-        this.responseService = userService;
+    public ResponseController(ResponseService responseService) {
+        this.responseService = responseService;
     }
 
 
@@ -24,7 +24,7 @@ public class ResponseController {
         return this.responseService.listByTopic(Long.valueOf(id));
     }
 
-    @PostMapping("topic/{id}/newPost")
+    @PostMapping("topic/{id}/newpost")
     public void create(@PathVariable Long id, @RequestBody ResponseDto responseDto) {
         this.responseService.create(responseDto);
     }
