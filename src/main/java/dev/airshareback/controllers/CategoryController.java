@@ -1,10 +1,10 @@
 package dev.airshareback.controllers;
 
 import dev.airshareback.controllers.dto.CategoryDto;
-import dev.airshareback.controllers.dto.TopicDto;
 import dev.airshareback.entities.Category;
-import dev.airshareback.entities.Topic;
 import dev.airshareback.services.CategoryService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,5 +33,10 @@ public class CategoryController {
     @PostMapping("category")
     public Category create(@RequestBody CategoryDto categoryDto) {
         return this.categoryService.create(categoryDto);
+    }
+
+    @DeleteMapping("category/{id}")
+    void deleteCategory(@PathVariable Long id) {
+        categoryService.deleteCategory(id);
     }
 }

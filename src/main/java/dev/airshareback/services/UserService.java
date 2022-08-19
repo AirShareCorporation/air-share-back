@@ -7,6 +7,7 @@ import dev.airshareback.entities.Status;
 import dev.airshareback.entities.User;
 import dev.airshareback.repositories.UserRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -30,11 +31,11 @@ public class UserService {
         StringBuilder sb = new StringBuilder();
 
         Optional<Role> role = roleService.findByName(u.getRole());
-        Optional<Status> status = statusService.findByName(u.getStatus());
-        Optional<ModerationStatus> moderationStatus = mss.findByName(u.getModerationStatus());
+        Optional<Status> status = statusService.findByName("ok");
+        Optional<ModerationStatus> moderationStatus = mss.findByName("accepte");
 
         if (role.isEmpty())
-            sb.append("Role inexistant!!!!!!!!!!");
+            sb.append("Role inexistant!");
 
         if (status.isEmpty())
             sb.append("Statut inexistant!");

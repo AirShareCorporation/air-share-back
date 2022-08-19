@@ -65,14 +65,12 @@ public class AirDataService {
         airData.setT(json.get("data").get("iaqi").get("t").get("v").asDouble());
         airData.setW(json.get("data").get("iaqi").get("w").get("v").asDouble());
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        LocalDateTime dateTime = LocalDateTime.parse(json.get("data").get("time").get("s").asText(), formatter);
-        airData.setDate(dateTime);
+        airData.setDate(LocalDateTime.now());
 
         airData.setLatitude(json.get("data").get("city").get("geo").get(0).asDouble());
         airData.setLongitude(json.get("data").get("city").get("geo").get(1).asDouble());
 
-        Optional<City> c = cityRepository.findByName(name);
+        Optional<City> c = cityRepository.findBySlug(name);
         airData.setCity(c.get());
 
         return airDataRepository.save(airData);

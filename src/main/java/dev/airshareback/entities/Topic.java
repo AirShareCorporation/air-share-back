@@ -14,7 +14,6 @@ public class Topic {
 
     private String title;
 
-    @Lob
     private String  message;
 
     private LocalDate writtenAt;

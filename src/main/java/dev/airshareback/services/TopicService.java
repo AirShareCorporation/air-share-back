@@ -9,6 +9,7 @@ import dev.airshareback.repositories.ResponseRepository;
 import dev.airshareback.repositories.TopicRepository;
 import dev.airshareback.repositories.UserRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.validation.Valid;
 import java.time.LocalDate;
@@ -16,6 +17,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@Transactional
 public class TopicService {
     private TopicRepository topicRepository;
     private UserRepository userRepository;

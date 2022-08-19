@@ -2,6 +2,7 @@ package dev.airshareback.entities;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "response")
@@ -12,10 +13,9 @@ public class Response {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Lob
     private String content;
 
-    private LocalDate writtenAt;
+    private LocalDateTime writtenAt;
 
     @ManyToOne
     @JoinColumn
@@ -44,11 +44,11 @@ public class Response {
         this.content = content;
     }
 
-    public LocalDate getWrittenAt() {
+    public LocalDateTime getWrittenAt() {
         return writtenAt;
     }
 
-    public void setWrittenAt(LocalDate written_at) {
+    public void setWrittenAt(LocalDateTime written_at) {
         this.writtenAt = written_at;
     }
 
