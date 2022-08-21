@@ -7,7 +7,6 @@ import dev.airshareback.entities.Status;
 import dev.airshareback.entities.User;
 import dev.airshareback.repositories.UserRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.validation.Valid;
 import java.util.List;

@@ -4,10 +4,8 @@ import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dev.airshareback.entities.City;
-import dev.airshareback.entities.MeteoData;
-import dev.airshareback.repositories.CityRepository;
-import dev.airshareback.repositories.MeteoDataRepository;
+import dev.airshareback.entities.*;
+import dev.airshareback.repositories.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.util.UriBuilder;
@@ -22,16 +20,32 @@ public class MeteoDataService {
     private MeteoDataRepository meteoDataRepository;
     private CityRepository cityRepository;
 
-    public MeteoDataService(MeteoDataRepository meteoDataRepository, CityRepository cityRepository) {
+    private DepartementRepository departementRepository;
+
+    private RegionRepository regionRepository;
+
+    public MeteoDataService(MeteoDataRepository meteoDataRepository, CityRepository cityRepository, DepartementRepository departementRepository, RegionRepository regionRepository) {
         this.meteoDataRepository = meteoDataRepository;
         this.cityRepository = cityRepository;
+        this.departementRepository = departementRepository;
+        this.regionRepository = regionRepository;
     }
-    
+
     public List<MeteoData> getMeteoRecord(String name) {
-        Optional<City> c = cityRepository.findByName(name);
+        Optional<City> c = cityRepository.findBySlug(name);
         return meteoDataRepository.findByCityOrderByDateTimeDesc(c.get());
     }
-    
+
+    public List<MeteoData> getDepartmentRecord(String name) {
+        Optional<Departement> dept = departementRepository.findBySlug(name);
+        return meteoDataRepository.findByCity_Departement(dept.get());
+    }
+
+    public List<MeteoData> getRegionRecord(String name) {
+        Optional<Region> region = regionRepository.findBySlug(name);
+        return meteoDataRepository.findByCity_Departement_Region(region.get());
+    }
+
 
     public MeteoData getMeteoNow(String city) throws IOException {
         City c = cityRepository.findBySlug(city).get();
