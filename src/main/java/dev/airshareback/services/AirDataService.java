@@ -32,7 +32,7 @@ public class AirDataService {
 
     public List<AirData> getRecord(String name) {
         Optional<City> c = cityRepository.findByName(name);
-        return airDataRepository.findByCityOrderByDatetimeDesc(c.get().getId());
+        return airDataRepository.findByCityOrderByDatetimeDesc(c.get());
     }
 
     public AirData getAirNow(String name) throws IOException {

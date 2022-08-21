@@ -1,5 +1,7 @@
 package dev.airshareback.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +37,7 @@ public class Departement {
     @OneToMany(mappedBy = "departement", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<City> cities = new ArrayList<>();
 
+    @JsonIgnore
     public List<City> getCities() {
         return cities;
     }
