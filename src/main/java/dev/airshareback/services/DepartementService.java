@@ -2,6 +2,7 @@ package dev.airshareback.services;
 
 import dev.airshareback.entities.Departement;
 import dev.airshareback.repositories.DepartementRepository;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,6 +16,6 @@ public class DepartementService {
     }
 
     public List<Departement> getDepartments() {
-        return this.departementRepository.findAll();
+        return this.departementRepository.findAll(Sort.by(Sort.Direction.ASC, "name"));
     }
 }
