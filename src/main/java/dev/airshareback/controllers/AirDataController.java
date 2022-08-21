@@ -19,13 +19,23 @@ public class AirDataController {
         this.airDataService = airDataService;
     }
 
-    @GetMapping("air-record/{city}")
-    public List<AirData> getAirRecord(@PathVariable String city) {
-        return airDataService.getRecord(city);
-    }
-
     @GetMapping("air-now/{city}")
     public AirData getAirToday(@PathVariable String city) throws IOException {
         return airDataService.getAirNow(city);
+    }
+
+    @GetMapping("air-record/city/{city}")
+    public List<AirData> getCityAirRecord(@PathVariable String city) {
+        return airDataService.getCityRecord(city);
+    }
+
+    @GetMapping("air-record/department/{department}")
+    public List<AirData> getDepartmentAirRecord(@PathVariable String department) {
+        return airDataService.getDepartmentRecord(department);
+    }
+
+    @GetMapping("air-record/region/{region}")
+    public List<AirData> getRegionAirRecord(@PathVariable String region) {
+        return airDataService.getRegionRecord(region);
     }
 }

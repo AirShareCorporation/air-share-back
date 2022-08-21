@@ -6,8 +6,12 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.airshareback.entities.AirData;
 import dev.airshareback.entities.City;
+import dev.airshareback.entities.Departement;
+import dev.airshareback.entities.Region;
 import dev.airshareback.repositories.AirDataRepository;
 import dev.airshareback.repositories.CityRepository;
+import dev.airshareback.repositories.DepartementRepository;
+import dev.airshareback.repositories.RegionRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -21,18 +25,34 @@ public class AirDataService {
     private AirDataRepository airDataRepository;
     private CityRepository cityRepository;
 
-    public AirDataService(AirDataRepository airDataRepository, CityRepository cityRepository) {
+    private DepartementRepository departementRepository;
+
+    private RegionRepository regionRepository;
+
+    public AirDataService(AirDataRepository airDataRepository, CityRepository cityRepository, DepartementRepository departementRepository, RegionRepository regionRepository) {
         this.airDataRepository = airDataRepository;
         this.cityRepository = cityRepository;
+        this.departementRepository = departementRepository;
+        this.regionRepository = regionRepository;
     }
 
     public List<AirData> list() {
         return airDataRepository.findAll();
     }
 
-    public List<AirData> getRecord(String name) {
-        Optional<City> c = cityRepository.findByName(name);
+    public List<AirData> getCityRecord(String name) {
+        Optional<City> c = cityRepository.findBySlug(name);
         return airDataRepository.findByCityOrderByDatetimeDesc(c.get());
+    }
+
+    public List<AirData> getDepartmentRecord(String name) {
+        Optional<Departement> dept = departementRepository.findBySlug(name);
+        return airDataRepository.findByCity_Departement(dept.get());
+    }
+
+    public List<AirData> getRegionRecord(String name) {
+        Optional<Region> region = regionRepository.findBySlug(name);
+        return airDataRepository.findByCity_Departement_Region(region.get());
     }
 
     public AirData getAirNow(String name) throws IOException {
