@@ -20,15 +20,16 @@ public class MeteoDataController {
         this.meteoDataService = meteoDataService;
     }
 
+    @GetMapping("meteo-now/{city}")
+    public MeteoData getMeteoNow(@PathVariable String city) throws IOException {
+        return meteoDataService.getMeteoNow(city);
+    }
+
     @GetMapping("meteo-record/city/{city}")
     public List<MeteoData> getMeteoRecord(@PathVariable String city) {
         return meteoDataService.getMeteoRecord(city);
     }
 
-    @GetMapping("meteo-now/city/{city}")
-    public MeteoData getMeteoNow(@PathVariable String city) throws IOException {
-        return meteoDataService.getMeteoNow(city);
-    }
 
     @GetMapping("meteo-record/department/{department}")
     public List<MeteoData> getDepartmentAirRecord(@PathVariable String department) {
