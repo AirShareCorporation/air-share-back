@@ -47,6 +47,7 @@ public class City {
     private List<MeteoData> meteoDatas = new ArrayList<>();
 
     @OneToMany(mappedBy = "city", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private List<Address> addresses = new ArrayList<>();
 
     public List<Address> getAddresses() {

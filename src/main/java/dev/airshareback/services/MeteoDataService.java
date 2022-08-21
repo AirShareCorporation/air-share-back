@@ -29,7 +29,7 @@ public class MeteoDataService {
     
     public List<MeteoData> getMeteoRecord(String name) {
         Optional<City> c = cityRepository.findByName(name);
-        return meteoDataRepository.findByCityOrderByDateTimeDesc(c.get().getId());
+        return meteoDataRepository.findByCityOrderByDateTimeDesc(c.get());
     }
     
 
