@@ -38,12 +38,12 @@ public class MeteoDataService {
 
     public List<MeteoData> getDepartmentRecord(String name) {
         Optional<Departement> dept = departementRepository.findBySlug(name);
-        return meteoDataRepository.findByCity_Departement(dept.get());
+        return meteoDataRepository.findByCity_DepartementOrderByDateTimeDesc(dept.get());
     }
 
     public List<MeteoData> getRegionRecord(String name) {
         Optional<Region> region = regionRepository.findBySlug(name);
-        return meteoDataRepository.findByCity_Departement_Region(region.get());
+        return meteoDataRepository.findByCity_Departement_RegionOrderByDateTimeDesc(region.get());
     }
 
 

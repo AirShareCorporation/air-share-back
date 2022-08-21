@@ -11,8 +11,8 @@ import java.util.List;
 public interface MeteoDataRepository extends JpaRepository<MeteoData, Integer> {
     List<MeteoData> findByCityOrderByDateTimeDesc(City city);
 
-    List<MeteoData> findByCity_Departement(Departement city_departement);
+    List<MeteoData> findByCity_DepartementOrderByDateTimeDesc(Departement city_departement);
 
-    List<MeteoData> findByCity_Departement_Region(Region city_departement_region);
+    List<MeteoData> findByCity_Departement_RegionOrderByDateTimeDesc(Region city_departement_region);
 
 }
