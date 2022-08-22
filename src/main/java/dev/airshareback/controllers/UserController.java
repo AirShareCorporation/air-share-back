@@ -31,6 +31,4 @@ public class UserController {
     public User create(@RequestBody UserDto userDto) {
         return this.userService.create(userDto);
     }
-
-
 }
