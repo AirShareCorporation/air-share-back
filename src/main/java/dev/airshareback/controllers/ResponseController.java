@@ -17,11 +17,16 @@ public class ResponseController {
         this.responseService = responseService;
     }
 
+    @GetMapping ("topic/responses")
+    public List<Response> getResponses() {
+        return this.responseService.list();
+    }
 
     @GetMapping("topic/{id}/responses")
     public List<Response> getResponseByTopic(@PathVariable String id) {
         return this.responseService.listByTopic(Long.valueOf(id));
     }
+
 
     @PostMapping("topic/{id}/newpost")
     public void create(@RequestBody ResponseDto responseDto) {
