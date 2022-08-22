@@ -1,0 +1,736 @@
+{
+	"info": {
+		"_postman_id": "169428ce-7501-4263-8d4a-8571ff9403a0",
+		"name": "air-share-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Utilisateurs",
+			"item": [
+				{
+					"name": "Liste des utilisateurs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://air-share-digi.herokuapp.com",
+							"protocol": "https",
+							"host": [
+								"air-share-digi",
+								"herokuapp",
+								"com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Détail d'un utilisateur",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Création d'un utilisateur",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pseudo\": \"\",\n    \"firstName\": \"\",\n    \"lastName\": \"\",\n    \"mailAddress\": \"\",\n    \"password\": \"\",\n    \"role\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://air-share-digi.herokuapp.com/users",
+							"protocol": "https",
+							"host": [
+								"air-share-digi",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Suppression d'un utilisateur",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://air-share-digi.herokuapp.com/user/{id}",
+							"protocol": "https",
+							"host": [
+								"air-share-digi",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"user",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Données de qualité de l'air",
+			"item": [
+				{
+					"name": "Liste pour une ville donnée",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://air-share-digi.herokuapp.com/air-record/city/{city}",
+							"protocol": "https",
+							"host": [
+								"air-share-digi",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"air-record",
+								"city",
+								"{city}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Liste pour un département donné",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://air-share-digi.herokuapp.com/air-record/department/{department}",
+							"protocol": "https",
+							"host": [
+								"air-share-digi",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"air-record",
+								"department",
+								"{department}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Liste pour une région donnée",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://air-share-digi.herokuapp.com/air-record/region/{region}",
+							"protocol": "https",
+							"host": [
+								"air-share-digi",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"air-record",
+								"region",
+								"{region}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mesure instantanée pour une ville donnée",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://air-share-digi.herokuapp.com/air-now/{city}",
+							"protocol": "https",
+							"host": [
+								"air-share-digi",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"air-now",
+								"{city}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Données Météorologiques",
+			"item": [
+				{
+					"name": "Liste pour une ville donnée",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://air-share-digi.herokuapp.com/meteo-record/city/{city}",
+							"protocol": "https",
+							"host": [
+								"air-share-digi",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"meteo-record",
+								"city",
+								"{city}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Liste pour un département donné",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://air-share-digi.herokuapp.com/meteo-record/department/{department}",
+							"protocol": "https",
+							"host": [
+								"air-share-digi",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"meteo-record",
+								"department",
+								"{department}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Liste pour une région donnée",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://air-share-digi.herokuapp.com/meteo-record/region/{region}",
+							"protocol": "https",
+							"host": [
+								"air-share-digi",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"meteo-record",
+								"region",
+								"{region}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Météo instantanée pour une ville donnée",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://air-share-digi.herokuapp.com/meteo-now/{city}",
+							"protocol": "https",
+							"host": [
+								"air-share-digi",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"meteo-now",
+								"{city}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Données de Recencement",
+			"item": [
+				{
+					"name": "Donnée pour une ville donnée",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://air-share-digi.herokuapp.com/census/{city}",
+							"protocol": "https",
+							"host": [
+								"air-share-digi",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"census",
+								"{city}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Topics",
+			"item": [
+				{
+					"name": "Liste des topics",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Détail d'un topic",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Création d'un topic",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"\",\n    \"message\": \"\",\n    \"writtenAt\": \"\",\n    \"highlight\": false,\n    \"pseudo\": \"\",\n    \"category\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Suppression d'un topic",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://air-share-digi.herokuapp.com/topic/{id}",
+							"protocol": "https",
+							"host": [
+								"air-share-digi",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"topic",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Role",
+			"item": [
+				{
+					"name": "Liste des roles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://air-share-digi.herokuapp.com/role",
+							"protocol": "https",
+							"host": [
+								"air-share-digi",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"role"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Détail d'un topic",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://air-share-digi.herokuapp.com/role/{id}",
+							"protocol": "https",
+							"host": [
+								"air-share-digi",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"role",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Création d'un topic",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://air-share-digi.herokuapp.com/role",
+							"protocol": "https",
+							"host": [
+								"air-share-digi",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"role"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Suppression d'un topic",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://air-share-digi.herokuapp.com/role/{id}",
+							"protocol": "https",
+							"host": [
+								"air-share-digi",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"role",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Catégories",
+			"item": [
+				{
+					"name": "Liste des catégories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://air-share-digi.herokuapp.com/category",
+							"protocol": "https",
+							"host": [
+								"air-share-digi",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Détail d'une catégorie",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://air-share-digi.herokuapp.com/category/{id}",
+							"protocol": "https",
+							"host": [
+								"air-share-digi",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"category",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Création d'une catégorie",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://air-share-digi.herokuapp.com/category",
+							"protocol": "https",
+							"host": [
+								"air-share-digi",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Suppression d'une catégorie",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://air-share-digi.herokuapp.com/category/{id}",
+							"protocol": "https",
+							"host": [
+								"air-share-digi",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"category",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Réponses",
+			"item": [
+				{
+					"name": "Liste des réponses d'un topic donné",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://air-share-digi.herokuapp.com/role",
+							"protocol": "https",
+							"host": [
+								"air-share-digi",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"role"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modification d'une réponse",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\": \"\",\n    \"writtenAt\": \"\",\n    \"highlight\": false,\n    \"user\": \"\",\n    \"topic\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://air-share-digi.herokuapp.com/topic/{id}/editResponse/{responseId}",
+							"protocol": "https",
+							"host": [
+								"air-share-digi",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"topic",
+								"{id}",
+								"editResponse",
+								"{responseId}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Création d'une nouvelle réponse à un topic donné",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\": \"\",\n    \"writtenAt\": \"\",\n    \"highlight\": false,\n    \"user\": \"\",\n    \"topic\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://air-share-digi.herokuapp.com/topic/{id}/newpost",
+							"protocol": "https",
+							"host": [
+								"air-share-digi",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"topic",
+								"{id}",
+								"newpost"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Suppression d'un réponse",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://air-share-digi.herokuapp.com/topic/{topicId}/response/{respId}",
+							"protocol": "https",
+							"host": [
+								"air-share-digi",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"topic",
+								"{topicId}",
+								"response",
+								"{respId}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Régions",
+			"item": [
+				{
+					"name": "Liste des régions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://air-share-digi.herokuapp.com/regions",
+							"protocol": "https",
+							"host": [
+								"air-share-digi",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"regions"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Départements",
+			"item": [
+				{
+					"name": "Liste des départements",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://air-share-digi.herokuapp.com/departments",
+							"protocol": "https",
+							"host": [
+								"air-share-digi",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"departments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Villes",
+			"item": [
+				{
+					"name": "Liste des villes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://air-share-digi.herokuapp.com/cities",
+							"protocol": "https",
+							"host": [
+								"air-share-digi",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"cities"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
