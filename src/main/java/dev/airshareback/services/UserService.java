@@ -30,17 +30,18 @@ public class UserService {
         StringBuilder sb = new StringBuilder();
 
         Optional<Role> role = roleService.findByName(u.getRole());
-        Optional<Status> status = statusService.findByName("ok");
-        Optional<ModerationStatus> moderationStatus = mss.findByName("accepte");
+        Status status;
+        ModerationStatus moderationStatus;
 
-        if (role.isEmpty())
-            sb.append("Role inexistant!");
+        if (statusService.findByName("Connecté").isEmpty())
+            status = statusService.create("Connecté");
+        else
+            status = statusService.findByName("Connecté").get();
 
-        if (status.isEmpty())
-            sb.append("Statut inexistant!");
-
-        if (moderationStatus.isEmpty())
-            sb.append("Statut de modération inexistant!");
+        if (mss.findByName("Accepté").isEmpty())
+            moderationStatus = mss.create("Accepté");
+        else
+            moderationStatus = mss.findByName("Accepté").get();
 
         User user = new User();
         user.setPseudo(u.getPseudo());
@@ -49,9 +50,9 @@ public class UserService {
         user.setMailAddress(u.getMailAddress());
         // TODO: Hash
         user.setPassword(u.getPassword());
-        user.setStatus(status.get());
+        user.setStatus(status);
         user.setRole(role.get());
-        user.setModerationStatus(moderationStatus.get());
+        user.setModerationStatus(moderationStatus);
 
         return userRepository.save(user);
     }

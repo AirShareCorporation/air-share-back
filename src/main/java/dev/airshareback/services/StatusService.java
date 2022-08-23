@@ -26,4 +26,10 @@ public class StatusService {
     public Optional<Status> findByName(String name) {
         return statusRepository.findByName(name);
     }
+
+    public Status create(String name){
+        Status s = new Status();
+        s.setName(name);
+        return statusRepository.save(s);
+    }
 }

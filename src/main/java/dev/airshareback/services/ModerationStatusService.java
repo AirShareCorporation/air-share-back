@@ -1,6 +1,7 @@
 package dev.airshareback.services;
 
 import dev.airshareback.entities.ModerationStatus;
+import dev.airshareback.entities.Status;
 import dev.airshareback.repositories.ModerationStatusRepository;
 import org.springframework.stereotype.Service;
 
@@ -25,5 +26,11 @@ public class ModerationStatusService {
 
     public Optional<ModerationStatus> findByName(String name) {
         return msr.findByName(name);
+    }
+
+    public ModerationStatus create(String name) {
+        ModerationStatus s = new ModerationStatus();
+        s.setName(name);
+        return msr.save(s);
     }
 }
