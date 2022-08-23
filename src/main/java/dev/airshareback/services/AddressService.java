@@ -18,7 +18,7 @@ public class AddressService {
         return addressRepository.findAll();
     }
 
-    public Optional<Address> get(int id) {
+    public Optional<Address> get(Long id) {
         return addressRepository.findById(id);
     }
 }
