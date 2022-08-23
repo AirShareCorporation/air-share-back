@@ -26,6 +26,11 @@ public class TopicController {
         return this.topicService.listTopic();
     }
 
+    @GetMapping("topic-count/{id}")
+    public Optional<Topic> countTopicByCategory(@PathVariable Long id) {
+        return this.topicService.countTopic(id);
+    }
+
     @GetMapping("topic/{id}")
     public Optional<Topic> get(@PathVariable Long id) {
         return this.topicService.get(id);

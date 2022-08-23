@@ -51,6 +51,11 @@ public class TopicService {
         return topicRepository.findAll();
     }
 
+    public Optional<Topic> countTopic(Long id) {
+        Optional<Category> category = categoryRepository.findById(id);
+        return topicRepository.countTopicByCategory(category.get());
+    }
+
     public Optional<Topic> get(Long id) {
         return topicRepository.findById(id);
     }

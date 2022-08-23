@@ -60,7 +60,7 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public Optional<User> findByFirst_name(String pseudo) {
+    public Optional<User> findByPseudo(String pseudo) {
         return userRepository.findByPseudo(pseudo);
     }
 
