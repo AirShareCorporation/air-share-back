@@ -1,5 +1,6 @@
 package dev.airshareback.controllers;
 
+import dev.airshareback.controllers.dto.LoginDto;
 import dev.airshareback.controllers.dto.UserDto;
 import dev.airshareback.entities.User;
 import dev.airshareback.services.UserService;
@@ -31,5 +32,10 @@ public class UserController {
     @PostMapping("users")
     public User create(@RequestBody UserDto userDto) {
         return this.userService.create(userDto);
+    }
+
+    @PostMapping("login")
+    public boolean check(@RequestBody LoginDto loginDto) {
+        return this.userService.check(loginDto);
     }
 }
