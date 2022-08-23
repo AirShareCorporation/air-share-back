@@ -9,5 +9,5 @@ import java.util.Optional;
 public interface TopicRepository extends JpaRepository<Topic, Integer> {
     Optional<Topic> findById(Long id);
     Optional<Topic> deleteById(Long id);
-    Optional<Topic> countTopicByCategory(Category category);
+    Integer countTopicByCategory(Category category);
 }

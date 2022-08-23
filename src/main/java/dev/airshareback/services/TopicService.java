@@ -51,7 +51,7 @@ public class TopicService {
         return topicRepository.findAll();
     }
 
-    public Optional<Topic> countTopic(Long id) {
+    public Integer countTopic(Long id) {
         Optional<Category> category = categoryRepository.findById(id);
         return topicRepository.countTopicByCategory(category.get());
     }
