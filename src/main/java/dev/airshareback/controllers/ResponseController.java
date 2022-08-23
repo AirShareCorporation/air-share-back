@@ -27,7 +27,6 @@ public class ResponseController {
         return this.responseService.listByTopic(Long.valueOf(id));
     }
 
-
     @PostMapping("topic/{id}/newpost")
     public void create(@RequestBody ResponseDto responseDto) {
         this.responseService.create(responseDto);
