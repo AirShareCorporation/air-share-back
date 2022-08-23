@@ -1,5 +1,6 @@
 package dev.airshareback.services;
 
+import dev.airshareback.controllers.dto.LoginDto;
 import dev.airshareback.controllers.dto.UserDto;
 import dev.airshareback.entities.ModerationStatus;
 import dev.airshareback.entities.Role;
@@ -27,8 +28,6 @@ public class UserService {
     }
 
     public User create(@Valid UserDto u) {
-        StringBuilder sb = new StringBuilder();
-
         Optional<Role> role = roleService.findByName(u.getRole());
         Status status;
         ModerationStatus moderationStatus;
@@ -67,6 +66,10 @@ public class UserService {
 
     public Optional<User> get(Long id) {
         return userRepository.findById(id);
+    }
+
+    public boolean check(@Valid LoginDto loginDto) {
+        return userRepository.findByPseudo(loginDto.getPseudo()).isPresent() && userRepository.findByPassword(loginDto.getPassword()).isPresent();
     }
 
 
