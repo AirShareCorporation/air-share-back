@@ -24,6 +24,7 @@ public class UserController {
 
     @GetMapping("users/{id}")
     public Optional<User> get(@PathVariable Long id) {
+        System.out.println(this.userService.get(id).get());
         return this.userService.get(id);
     }
 
@@ -31,6 +32,4 @@ public class UserController {
     public User create(@RequestBody UserDto userDto) {
         return this.userService.create(userDto);
     }
-
-
 }

@@ -33,6 +33,11 @@ public class CensusDataService {
 
     public CensusData getCensus(String city) throws IOException {
         Optional<City> c = cityRepository.findBySlug(city);
+
+        if (c.isPresent()) {
+            return censusDataRepository.findByCity(c.get());
+        }
+
         WebClient client = WebClient.builder()
             .baseUrl(String.format("https://geo.api.gouv.fr/communes?nom=%s", city))
             .build();
@@ -47,23 +52,29 @@ public class CensusDataService {
         JsonParser parser = factory.createParser(data);
         JsonNode json = mapper.readTree(parser);
 
-        if (c.isEmpty()) {
-            City newCity = new City();
-
-            newCity.setDepartementCode(json.get(0).get("codeDepartement").asText());
-            newCity.setInseeCode(json.get(0).get("code").asText());
-            newCity.setName(json.get(0).get("nom").asText());
-            newCity.setSlug(json.get(0).get("nom").asText().toLowerCase());
-            Optional<Departement> dept = departementRepository.findByCode(json.get(0).get("codeDepartement").asText());
-            newCity.setDepartement(dept.get());
-            cityRepository.save(newCity);
+        int i = 0;
+        for (int j = 0; j < json.size(); j++) {
+            System.out.println(json.get(j).get("nom").asText().toLowerCase());
+            if (json.get(j).get("nom").asText().toLowerCase().equals(city))
+                i = j;
         }
+
+        City newCity = new City();
+
+        newCity.setDepartementCode(json.get(i).get("codeDepartement").asText());
+        newCity.setInseeCode(json.get(i).get("code").asText());
+        newCity.setName(json.get(i).get("nom").asText());
+        newCity.setSlug(json.get(i).get("nom").asText().toLowerCase());
+        Optional<Departement> dept = departementRepository.findByCode(json.get(i).get("codeDepartement").asText());
+        newCity.setDepartement(dept.get());
+        cityRepository.save(newCity);
         CensusData censusData = new CensusData();
 
-        censusData.setDataCensus(json.get(0).get("population").asInt());
+        censusData.setDataCensus(json.get(i).get("population").asInt());
         censusData.setDate(LocalDate.now());
         censusData.setCity(cityRepository.findBySlug(city).get());
 
         return censusDataRepository.save(censusData);
+
     }
 }

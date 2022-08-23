@@ -11,7 +11,7 @@ import java.util.List;
 public interface AirDataRepository extends JpaRepository<AirData, Integer> {
     List<AirData> findByCityOrderByDatetimeDesc(City city);
 
-    List<AirData> findByCity_DepartementOrderByDateTimeDesc(Departement city_departement);
+    List<AirData> findByCity_DepartementOrderByDatetimeDesc(Departement city_departement);
 
-    List<AirData> findByCity_Departement_RegionOrderByDateTimeDesc(Region city_departement_region);
+    List<AirData> findByCity_Departement_RegionOrderByDatetimeDesc(Region city_departement_region);
 }

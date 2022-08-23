@@ -47,12 +47,12 @@ public class AirDataService {
 
     public List<AirData> getDepartmentRecord(String name) {
         Optional<Departement> dept = departementRepository.findBySlug(name);
-        return airDataRepository.findByCity_DepartementOrderByDateTimeDesc(dept.get());
+        return airDataRepository.findByCity_DepartementOrderByDatetimeDesc(dept.get());
     }
 
     public List<AirData> getRegionRecord(String name) {
         Optional<Region> region = regionRepository.findBySlug(name);
-        return airDataRepository.findByCity_Departement_RegionOrderByDateTimeDesc(region.get());
+        return airDataRepository.findByCity_Departement_RegionOrderByDatetimeDesc(region.get());
     }
 
     public AirData getAirNow(String name) throws IOException {

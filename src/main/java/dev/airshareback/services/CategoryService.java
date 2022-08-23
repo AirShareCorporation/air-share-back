@@ -37,10 +37,6 @@ public class CategoryService {
         return categoryRepository.findAll();
     }
 
-    public Optional<Category> get(int id) {
-        return categoryRepository.findById(id);
-    }
-
     public Optional<Category> getCategory(Long id) {
         return categoryRepository.findById(id);
     }
